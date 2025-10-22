@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Óptica Miroo</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/estilo1.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+</head>
+<body id="productos">
+
+  <div class="nav-container">
+    <img src="img/logo.png" alt="logo optica" class="logo-header">
+    <nav class="nav-links">
+      <a href="index.html">INICIO 🏘️</a>
+      <a href="nosotros.html">NOSOTROS 🧑‍💻</a>
+      <a href="productos.html">PRODUCTOS 🛍️</a>
+      <a href="blog.html">BLOG 📝</a>
+      <a href="login.html">CUENTA 👤</a>
+      <a href="contacto.html">CONTACTO ✉️</a>
+      <a href="#" onclick="abrirMiniCarrito()">CARRITO 🛒</a>
+    </nav>
+  </div>
+
+  <h1 class="titulo">ÓPTICA MIROO</h1>
+  <h2 class="titulo-bloque" style="color:rgb(233, 79, 24)">TRANSFORMA TU MIRADA CON ESTILO</h2>
+  <h2 style="color:rgb(233, 79, 24)">Nuestros Productos</h2>
+
+  <div id="catalogo" class="catalogo"></div>
+  
+  <div id="mini-carrito" class="modal">
+    <div class="modal-contenido">
+      <span class="modal-cerrar" onclick="cerrarMiniCarrito()">×</span>
+      <h3>🛍️ Resumen del Carrito</h3>
+      <div id="resumen-carrito"></div>
+      <button onclick="irAlCarrito()" class="btn-carrito">Ver carrito completo</button>
+    </div>
+  </div>
+
+  <div id="modal-producto" class="modal">
+    <div class="modal-contenido">
+      <span class="modal-cerrar" id="cerrar-modal-producto">×</span>
+      <img id="modal-img" src="" alt="" style="width: 300px; border-radius: 10px;">
+      <h2 id="modal-nombre"></h2>
+      <p id="modal-precio"></p>
+      <p id="modal-descripcion"></p>
+    </div>
+  </div>
+
+  <footer class="footer-optica">
+    <div>
+      <strong>Óptica Miroo</strong> &copy; 2025<br>
+      Instagram: @opticamiroo <br>
+      Teléfono: +56 9 1234 5678<br>
+      Email: contacto@opticamiroo.cl
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <script src="js/productos.js"></script>
+  <script src="js/mostrarProductos.js"></script>
+  <script src="js/mostrarCarrito.js"></script>
+</body>
+</html>

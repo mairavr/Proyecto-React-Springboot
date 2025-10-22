@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/estilo1.css" />
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de Administración</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/estilo1.css" />
+</head>
+<body>
+  
+  <div id="login-overlay" style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Poppins', sans-serif;
+  ">
+    <form id="login-form" style="
+      background: #f2f2f2;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      color: #333;
+      min-width: 300px;
+    ">
+      <h2 style="margin-bottom: 20px;">Iniciar Sesión</h2>
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" name="usuario" required style="width: 100%; margin-bottom: 15px;" />
+      <label for="clave">Contraseña</label>
+      <input type="password" id="clave" name="clave" required style="width: 100%; margin-bottom: 20px;" />
+      <button type="submit" style="width: 100%; padding: 10px;">Entrar</button>
+      <p id="login-error" style="color: red; margin-top: 10px; display: none;">Credenciales incorrectas</p>
+    </form>
+  </div>
+
+  <div class="admin-container">
+    <aside class="sidebar">
+      <h2 class="text-orange">Panel Administrador</h2>
+      <nav class="sidebar-menu">
+        <div class="menu-item active" data-target="dashboard">📊 <span class="text-orange">Dashboard</span></div>
+        <div class="menu-item" data-target="usuarios">👥 <span class="text-orange">Usuarios</span></div>
+        <div class="menu-item" data-target="productos">📦 <span class="text-orange">Productos</span></div>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="admin-header">
+        <div class="search-box">🔍 <input type="text" placeholder="Buscar..." /></div>
+        <div class="user-info">
+          <p class="text-orange">Contacto administrador</p>
+          <p><a href="mailto:admin@opticamiroo.cl">admin@opticamiroo.cl</a></p>
+        </div>
+      </header>
+
+      <section id="dashboard" class="content-section active">
+        <h1 class="dashboard-title text-orange">Dashboard Principal</h1>
+
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div>
+              <h3>1,254</h3>
+              <p>Usuarios Registrados</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div>
+              <h3>524</h3>
+              <p>Productos Activos</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🛒</div>
+            <div>
+              <h3>689</h3>
+              <p>Pedidos del Mes</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div>
+              <h3>$24,850</h3>
+              <p>Ingresos Totales</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🔔</div>
+            <div>
+              <p>Notificaciones recientes</p>
+              <ul style="margin: 5px 0 0; padding-left: 15px;">
+                <li>Pedido de Juan Pérez (ID #4587)</li>
+                <li>Usuario registrado: María López (Cliente)</li>
+                <li>Producto agotado: Gafas UV Pro</li>
+                <li>Actualización de stock: Lentes Polarizados</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div>
+              <p>Actividades del mes</p>
+              <ul style="margin: 5px 0 0; padding-left: 15px;">
+                <li>20 Sep: Reunión de equipo (Zoom)</li>
+                <li>25 Sep: Lanzamiento de Gafas Titan</li>
+                <li>30 Sep: Revisión mensual de ventas</li>
+                <li>02 Oct: Capacitación interna</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">🧠</div>
+            <div>
+              <p>Insights rápidos</p>
+              <ul style="margin: 5px 0 0; padding-left: 15px;">
+                <li>Producto más vendido: Lentes BlueShield</li>
+                <li>Comuna con más usuarios: Maipú</li>
+                <li>Hora pico de pedidos: 18:00 hrs</li>
+                <li>Categoría más consultada: Gafas de sol</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon">📨</div>
+            <div>
+              <p>Solicitudes de soporte abiertas</p>
+              <ul style="margin: 5px 0 0; padding-left: 15px;">
+                <li>Consulta por lentes bifocales</li>
+                <li>Problema con pago online</li>
+                <li>Solicitud de factura</li>
+                <li>Error en pago online</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="usuarios" class="content-section">
+        <h1 class="dashboard-title text-orange">Gestión de Usuarios</h1>
+        <button class="btn btn-new" onclick="mostrarFormularioUsuario()">Nuevo Usuario</button>
+
+        <div id="formUsuarioContainer" style="display: none; margin-top: 20px;">
+          <form id="formUsuario">
+            <input type="text" name="run" placeholder="RUN (ej. 19011022K)" />
+            <span class="error-message" id="run-error"></span>
+
+            <input type="text" name="nombre" placeholder="Nombre" />
+            <span class="error-message" id="nombre-error"></span>
+
+            <input type="text" name="apellidos" placeholder="Apellidos" />
+            <span class="error-message" id="apellidos-error"></span>
+
+            <input type="email" name="correo" placeholder="Correo electrónico" />
+            <span class="error-message" id="correo-error"></span>
+
+            <select name="tipo">
+              <option value="">Tipo de Usuario</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Cliente">Cliente</option>
+              <option value="Vendedor">Vendedor</option>
+            </select>
+            <span class="error-message" id="tipo-error"></span>
+
+            <select id="region" name="region">
+              <option value="">Región</option>
+              <option value="Metropolitana">Metropolitana</option>
+              <option value="Valparaíso">Valparaíso</option>
+            </select>
+            <span class="error-message" id="region-error"></span>
+
+            <select id="comuna" name="comuna" style="display:none;">
+              <option value="">Comuna</option>
+            </select>
+            <span class="error-message" id="comuna-error"></span>
+
+            <input type="text" name="direccion" placeholder="Dirección" />
+            <span class="error-message" id="direccion-error"></span>
+
+            <button type="button" id="btnUsuario">Crear Usuario</button>
+            <button type="button" id="btnCancelarUsuario" style="display:none;">Cancelar</button>
+          </form>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>RUT</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Estado</th><th>Acciones</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="productos" class="content-section">
+        <h1 class="dashboard-title text-orange">Gestión de Productos</h1>
+        <button class="btn btn-new" onclick="mostrarFormularioProducto()">Nuevo Producto</button>
+
+        <div id="formProductoContainer" style="display: none; margin-top: 20px;">
+          <form id="formProducto">
+            <input type="text" name="codigo" placeholder="Código Producto" />
+            <span class="error-message" id="codigo-error"></span>
+
+            <input type="text" name="nombre" placeholder="Nombre" />
+            <span class="error-message" id="nombre-error"></span>
+
+            <input type="number" name="precio" placeholder="Precio" />
+            <span class="error-message" id="precio-error"></span>
+
+            <input type="number" name="stock" placeholder="Stock" />
+            <span class="error-message" id="stock-error"></span>
+
+            <select name="categoria">
+              <option value="">Selecciona categoría</option>
+              <option value="Lentes">Lentes</option>
+              <option value="Gafas">Gafas</option>
+            </select>
+            <span class="error-message" id="categoria-error"></span>
+
+            <button type="button" id="btnProducto">Crear Producto</button>
+            <button type="button" id="btnCancelarProducto" style="display:none;">Cancelar</button>
+          </form>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>ID</th><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/indexAdmin.js"></script>
+  <script src="js/usuarioAdmin.js"></script>
+  <script src="js/productoAdmin.js"></script>
+  <script src="js/loginAdmin.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica Miroo</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/estilo1.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="nav-container">
+    <img src="img/logo.png" alt="logo optica" class="logo-header">
+    <nav class="nav-links">
+      <a href="index.html">INICIO 🏘️</a>
+      <a href="nosotros.html">NOSOTROS 🧑‍💻</a>
+      <a href="productos.html">PRODUCTOS 🛍️</a>
+      <a href="blog.html">BLOG 📝</a>
+      <a href="login.html">CUENTA 👤</a>
+      <a href="contacto.html">CONTACTO ✉️</a>
+      <a href="#" onclick="abrirMiniCarrito()">CARRITO 🛒</a>
+    </nav>
+  </div>
+
+    <h1 class="titulo">ÓPTICA MIROO</h1>
+
+ <style>
+  
+    .contenedor-noticias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .tarjeta {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 300px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .tarjeta:hover {
+      transform: scale(1.02);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .tarjeta .contenido {
+      padding: 15px;
+    }
+
+    .tarjeta .contenido h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .tarjeta .contenido p {
+      margin: 0;
+      color: #555;
+    }
+
+    .detalle {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .cerrar {
+      text-align: right;
+      font-size: 14px;
+      color: #888;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="width: auto;text-align: center;color: #333;"  >Noticias del dia</h1>
+
+  <div class="contenedor-noticias">
+    <div class="tarjeta" onclick="mostrarDetalle('detalle1')">
+      <img width="250" height="200" src="img/avancesTecnologicos.webp" alt="Noticia 1">
+      <div class="contenido">
+        <h2>Avances Tecnológicos en Óptica</h2>
+        <p>Los avances tecnológicos en óptica mejoran la calidad visual, <br>
+        comodidad y personalización, con lentes progresivas, fotocromáticas y pruebas de visión en línea. <br>
+        </p>
+      </div>
+    </div>
+
+    <div class="tarjeta" onclick="mostrarDetalle('detalle2')">
+      <img width="250" height="200" src="img/saludOcular.jpeg" alt="Noticia 2">
+      <div class="contenido">
+        <h2>Noticias y Actualizaciones en Salud Ocular</h2>
+        <p>A través de esta sección compartimos con nuestros pacientes las últimas novedades en tratamientos, <br>
+        investigaciones y tecnologías que ayudan a prevenir y mejorar diferentes condiciones oculares. </p>
+      </div>
+    </div>
+
+    <div class="tarjeta" onclick="mostrarDetalle('detalle3')">
+      <img width="250" height="200" src="img/tendencia.jpg" alt="Noticia 3">
+      <div class="contenido">
+        <h2>Tendencias en Lentes y Moda</h2>
+        <p>En Óptica Miroo nos mantenemos al día con los avances en el cuidado de la vista. 
+        A través de esta sección compartimos con nuestros pacientes las últimas novedades en tratamientos, <br>
+        investigaciones y tecnologías.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="detalle1" class="detalle">
+    <div class="cerrar" onclick="cerrarDetalle()">✖ Cerrar</div>
+    <h2>Revolución Óptica: Nuevas Lentes Inteligentes Transforman la Experiencia Visual</h2>
+    <p><b>Santiago, 17 de septiembre de 2025</b> — El sector óptico vive una transformación sin
+      precedentes gracias al lanzamiento de las nuevas lentes inteligentes VisioAdapt 5.0, desarrolladas
+      por la startup chilena OptiTech. Estas lentes combinan tecnología progresiva, fotocromática y sensores <br>
+      de luz ambiental para adaptarse automáticamente a las condiciones del entorno. <br>
+      <b>Entre sus características más destacadas: </b> <br><br>
+      ● Ajuste dinámico de enfoque: ideal para usuarios con presbicia o visión mixta. <br>
+      ● Filtro de luz azul inteligente: que se activa solo en presencia de pantallas digitales. <br>
+      ● Sincronización con apps móviles: permite realizar autoevaluaciones visuales y recibir recomendaciones personalizadas. <br><br>
+      “Estamos ante una nueva era donde la óptica se fusiona con la inteligencia artificial para ofrecer soluciones verdaderamente personalizadas”, afirmó la Dra. Marcela Ríos, directora de innovación en OptiTech.</p>
+  </div>
+
+  <div id="detalle2" class="detalle">
+    <div class="cerrar" onclick="cerrarDetalle()">✖ Cerrar</div>
+    <h2>Chile Lidera Ensayo Clínico para Prevenir la Degeneración Macular con Terapia Genética</h2>
+    <p><b>Valparaíso, 17 de septiembre de 2025</b> — Investigadores del Instituto de Salud Visual de la Universidad Técnica Federico Santa María han iniciado un ensayo clínico pionero en Latinoamérica que busca prevenir la degeneración macular mediante terapia genética. <br>
+    Este estudio involucra a más de 300 pacientes mayores de 60 años y utiliza vectores virales para introducir genes protectores directamente en la retina. <br>
+    <b>Resultados preliminares: </b> <br><br>
+    ● Reducción del 40% en la progresión de la enfermedad. <br>
+    ● Mejora en la sensibilidad visual en un 25% de los casos tratados. <br>
+    ● Alta tolerancia y mínima reacción adversa en los participantes. <br><br>
+    Además, se ha lanzado una campaña informativa en centros ópticos del país para educar a la población sobre los factores de riesgo y las nuevas opciones de tratamiento. <br>
+    “La prevención comienza con la información. Queremos que cada paciente entienda que la ciencia está avanzando para proteger su visión”, señaló el Dr. Álvaro Méndez, líder del proyecto.</p>
+  </div>
+
+  <div id="detalle3" class="detalle">
+    <div class="cerrar" onclick="cerrarDetalle()">✖ Cerrar</div>
+    <h2>Lentes con Estilo: La Moda Óptica 2025 Apuesta por la Sustentabilidad y el Diseño Retro</h2>
+    <p><b>Providencia, 17 de septiembre de 2025</b> — Las vitrinas de las ópticas chilenas se llenan de color y conciencia ecológica con la llegada de la colección EcoRetro, una línea de lentes fabricados con materiales reciclados y diseños inspirados en los años 70. <br>
+    La tendencia actual combina estética vintage con responsabilidad ambiental. <br><br>
+    <b>Características de la colección EcoRetro: </b> <br>
+    ● Monturas biodegradables hechas de acetato vegetal. <br>
+    ● Colores vibrantes como ámbar, verde oliva y azul petróleo. <br>
+    ● Diseños oversize que evocan la estética retro con un toque moderno. <br><br>
+    Según datos de la Cámara Nacional de Ópticas, el 68% de los consumidores jóvenes prioriza la sustentabilidad al elegir sus lentes. <br>
+    “Ya no se trata solo de ver bien, sino de verse bien y hacer el bien”, comentó Camila Soto, diseñadora de la marca LenteLibre, que colabora con comunidades locales para producir monturas artesanales.</p>
+  </div>
+
+  <script>
+    function mostrarDetalle(id) {
+      document.querySelectorAll('.detalle').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo({ top: document.getElementById(id).offsetTop, behavior: 'smooth' });
+    }
+
+    function cerrarDetalle() {
+      document.querySelectorAll('.detalle').forEach(el => el.style.display = 'none');
+    }
+  </script>
+
+  <div id="mini-carrito" class="modal">
+    <div class="modal-contenido">
+      <span class="modal-cerrar" onclick="cerrarMiniCarrito()">×</span>
+      <h3>🛍️ Resumen del Carrito</h3>
+      <div id="resumen-carrito"></div>
+      <button onclick="irAlCarrito()" class="btn-carrito">Ver carrito completo</button>
+    </div>
+  </div>
+
+    <footer class="footer-optica">
+        <div>
+            <strong>Óptica Miroo</strong> &copy; 2025<br>
+            Instagram: @opticamiroo <br>
+            Teléfono: +56 9 1234 5678<br>
+            Email: contacto@opticamiroo.cl
+        </div>
+    </footer>
+
+  <script src="js/mostrarCarrito.js"></script>
+
+</body>
+</html>

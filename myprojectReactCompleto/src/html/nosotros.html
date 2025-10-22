@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Óptica Miroo</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/estilo1.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+</head>
+<body id="nosotros">
+
+  <div class="nav-container">
+    <img src="img/logo.png" alt="logo optica" class="logo-header">
+    <nav class="nav-links">
+      <a href="index.html">INICIO 🏘️</a>
+      <a href="nosotros.html">NOSOTROS 🧑‍💻</a>
+      <a href="productos.html">PRODUCTOS 🛍️</a>
+      <a href="blog.html">BLOG 📝</a>
+      <a href="login.html">CUENTA 👤</a>
+      <a href="contacto.html">CONTACTO ✉️</a>
+      <a href="#" onclick="abrirMiniCarrito()">CARRITO 🛒</a>
+    </nav>
+  </div>
+
+    <h1 class="titulo">ÓPTICA MIROO</h1>
+    <div class="gif-centro">
+        <img src="img/gifLentes.gif" alt="Animación óptica" id="gif2">
+    </div>
+
+    <h1 style="width: auto;color:rgb(233, 79, 24)" >¿Quiénes Somos?</h1>
+    <p>En Óptica Miroo nos dedicamos a cuidar de tu visión...<br>
+    Somos mucho más que una óptica tradicional, somos
+    tu aliado de confianza en el cuidado de uno de tus sentidos más valiosos: tu visión.<br>
+    Combinamos la tecnología más avanzada con el trato humano y personalizado que te mereces.</p>
+        
+    <h2 style="width: auto;color:rgb(233, 79, 24)" >Nuestra Misión</h2>
+    <p>Proporcionar soluciones visuales integrales que mejoren la calidad de vida de nuestros clientes,
+    ofreciendo productos de alta calidad,<br>
+    atención profesional y un servicio excepcional.</p>
+
+    <h2 style="width: auto;color:rgb(233, 79, 24)">Lo que Nos Hace Únicos</h2>
+    <p>🔹 Expertos en Salud Visual<br><br>
+       - Exámenes de la vista completos y precisos <br>
+       - Tecnología de diagnóstico de última generación<br>
+       - Profesionales optométricos certificados</p>
+       <br>
+    <p>🔹 Estilo y Calidad<br><br>
+       - Monturas de primeras marcas y diseños exclusivos<br>
+       - Lentes con tratamientos avanzados (antirreflejante, blue light, fotocromáticos)<br>
+       - Gafas de sol con protección 100% UV</p>
+       <br>
+    <p>🔹 Servicio Personalizado<br><br>
+    <p>- Asesoramiento individualizado<br>
+       - Tiempos de entrega récord<br>
+       - Garantías extendidas en todos nuestros productos</p>
+
+    <h2 style="width: auto;color:rgb(233, 79, 24)" >Para Todos y Para Todo</h2>
+    <p>Niños: Control de miopía y monturas infantiles resistentes<br>
+    Jóvenes: Diseños modernos y lentes para dispositivos digitales<br>
+    Adultos: Soluciones para presbicia y comodidad visual<br>
+    Deportistas: Gafas especializadas para cada disciplina</p>
+    <br>
+
+  <div id="mini-carrito" class="modal">
+    <div class="modal-contenido">
+      <span class="modal-cerrar" onclick="cerrarMiniCarrito()">×</span>
+      <h3>🛍️ Resumen del Carrito</h3>
+      <div id="resumen-carrito"></div>
+      <button onclick="irAlCarrito()" class="btn-carrito">Ver carrito completo</button>
+    </div>
+  </div>
+
+    <footer class="footer-optica">
+        <div>
+            <strong>Óptica Miroo</strong> &copy; 2025<br>
+            Instagram: @opticamiroo <br>
+            Teléfono: +56 9 1234 5678<br>
+            Email: contacto@opticamiroo.cl
+        </div>
+    </footer>
+
+  <script src="js/mostrarCarrito.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/estilo1.css">
+  <link rel="stylesheet" href="css/toast.css">
+</head>
+<body>
+  <div class="nav-container">
+    <img src="img/logo.png" alt="logo optica" class="logo-header">
+    <nav class="nav-links">
+      <a href="index.html">INICIO 🏘️</a>
+      <a href="nosotros.html">NOSOTROS 🧑‍💻</a>
+      <a href="productos.html">PRODUCTOS 🛍️</a>
+      <a href="blog.html">BLOG 📝</a>
+      <a href="login.html">CUENTA 👤</a>
+      <a href="contacto.html">CONTACTO ✉️</a>
+      <a href="#" onclick="abrirMiniCarrito()">CARRITO 🛒</a>
+    </nav>
+  </div>
+
+  <h1 style="color:rgb(233, 79, 24)">🛒 Carrito de Compras</h1>
+
+  <div class="carrito">
+    <table class="tabla-carrito">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="acciones-carrito">
+      <button id="vaciar-carrito" class="btn-carrito">🧹 Vaciar carrito</button>
+    </div>
+
+    <div class="total">Total: </div>
+
+    <button class="btn-carrito" id="finalizar-compra">Finalizar compra</button>
+  </div>
+
+  <div id="modal-exito" class="modal">
+    <div class="modal-contenido">
+      <span class="modal-cerrar" onclick="cerrarModal()">×</span>
+      <h2>✅ ¡Compra realizada con éxito!</h2>
+      <p>Gracias por tu compra. Recibirás un correo con los detalles.</p>
+    </div>
+  </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <footer class="footer-optica">
+        <div>
+            <strong>Óptica Miroo</strong> &copy; 2025<br>
+            Instagram: @opticamiroo <br>
+            Teléfono: +56 9 1234 5678<br>
+            Email: contacto@opticamiroo.cl
+        </div>
+    </footer>
+
+  <script src="js/mostrarCarrito.js"></script>
+</body>
+</html>
