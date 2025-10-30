@@ -57,7 +57,7 @@ function App() {
             />
             <Route path="/clientes" element={<ClientePage />} />
             <Route path="/empleados" element={<EmpleadoPage />} />
-            <Route path="/productos" element={<ProductoPage />} />
+            <Route path="/admin/productos" element={<ProductoPage />} />
             <Route path="/categorias" element={<CategoriaPage />} />
             <Route path="/proveedores" element={<ProveedoresPage />} />
             <Route path="/ventas" element={<VentasPage />} />
