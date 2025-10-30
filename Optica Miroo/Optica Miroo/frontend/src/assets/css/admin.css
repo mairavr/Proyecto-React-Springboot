@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+
+/* ---------PRINCIPAL------------- */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #1f1c1a;
+  overflow-y: auto;
+}
+
+.text-orange {
+  color: rgb(233, 79, 24) !important;
+  margin-right: 10px;
+}
+
+/* ---------LAYOUT PRINCIPAL DEL ADMIN------------- */
+.admin-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background: #ee9a4c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.admin-header {
+  background: white;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f5f7fa;
+  border-radius: 5px;
+  padding: 1px 5px;
+  width: 950px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+}
+
+/* ---------SIDEBAR------------- */
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 20px 15px;
+}
+
+.sidebar-menu {
+  flex-grow: 1;
+  padding: 10px 0;
+}
+
+.menu-item {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active {
+  background: #ffb25b;
+  border-left: 4px solid white;
+}
+
+/* ---------CONTENIDO DINAMICO------------- */
+.content-section {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.content-section.active {
+  display: flex;
+}
+
+/* ---------DASHBOARD------------- */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-content: start;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+.stat-card ul {
+  margin: 0;
+  padding-left: 15px;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: white;
+  background: #e94f18;
+}
+
+/* ---------TABLAS------------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #f0952d;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.data-table th, .data-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.data-table tr:hover {
+  background-color: #e07902;
+}
+
+/* ---------BOTONES------------- */
+.btn {
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: #fff;
+  margin-right: 5px;
+}
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-new {
+  background: #ec9939;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-new:hover {
+  background: #d97f23;
+}
+
+/* ---------RESPONSIVE------------- */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+  .search-box {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    min-height: auto;
+  }
+  .sidebar h2 {
+    margin: 10px;
+    font-size: 1.2rem;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    padding: 0 10px;
+  }
+  .menu-item {
+    padding: 10px 15px;
+    white-space: nowrap;
+  }
+  .main-content {
+    flex: 1;
+  }
+  .content-section.active {
+    padding: 15px;
+  }
+  .stats-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}

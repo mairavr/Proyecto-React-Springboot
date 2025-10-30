@@ -1,0 +1,40 @@
+.contenedor-noticias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;     
+  justify-content: center; 
+}
+
+.tarjeta {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 300px;   
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: scale(1.02);
+}
+
+.tarjeta img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.tarjeta .contenido {
+  padding: 15px;
+}
+
+.tarjeta .contenido h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #222;
+}
+
+.tarjeta .contenido p {
+  margin: 0;
+  color: #555;
+}

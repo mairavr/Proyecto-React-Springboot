@@ -1,0 +1,15 @@
+.tabla-naranja {
+  background-color: #fff4e5; 
+  border: 1px solid #f0b27a;
+}
+
+.tabla-naranja thead {
+  background-color: #f8c471; 
+  color: #3e2723;
+  font-weight: bold;
+}
+
+.tabla-naranja tbody tr:hover {
+  background-color: #fdebd0; 
+  transition: background-color 0.3s;
+}

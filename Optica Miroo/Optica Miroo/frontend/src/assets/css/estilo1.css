@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+
+/* ======== ESTILOS GENERALES ======== */
+html {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 20px;
+  font-family: 'Poppins', Arial, sans-serif;
+  background-image: url("../img/fondo_productos.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh; 
+  display: flex;       
+  flex-direction: column;
+}
+
+main {
+  flex: 1;              
+}
+
+/* ======== PÁGINAS ======== */
+
+#nosotros h1,
+#nosotros h2 {
+    text-align: center;
+}
+
+#nosotros p {
+    width: 40%;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* ======== TÍTULOS Y TEXTOS ======== */
+
+.titulo {
+    text-align: center;
+    color: rgb(233, 79, 24);
+    margin-top: 20px;
+}
+
+.subtitulo {
+  top: 90px;        
+  right: 40px;
+  margin: 0;
+  color: rgb(233, 79, 24);
+  text-align: center;
+  z-index: 100;    
+}
+
+.titulo-bloque {
+    background-color: white; 
+    padding: 10px 20px;       
+    border-radius: 8px;        
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    color: rgb(233, 79, 24);
+    display: block;      
+    width: fit-content;      
+    margin: 20px auto;      
+    text-align: center;      
+}
+
+.texto-form {
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+/* ======== LOGOS ======== */
+
+img[alt="logo optica"] {
+    width: 150px;      
+    height: 108px;
+    object-fit: cover;
+    margin-right: 0px;
+}
+
+.logo-header {
+    height: 50px;
+    width: auto;
+    object-fit: cover;
+}
+
+/* ======== NAVBAR ======== */
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5b974;
+    padding: 5px 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+}
+
+.nav-links a {
+    color: rgb(233, 79, 24);
+    padding: 0px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-link {
+  color: rgb(233, 79, 24);
+  padding: 0px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+
+/* ======== GIF CENTRADO ======== */
+
+.gif-centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 10px 0;
+}
+
+#gif1 {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#gif2 {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*======== ERRORES EN FORMULARIO =============*/
+
+.error-message {
+    color: #ff1212;
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    display: none;
+}
+.input-error {
+    border-color: #ff5757 !important;
+    box-shadow: 0 0 0 3px rgba(255, 65, 65, 0.3) !important;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/*======= FORMULARIO DE CONTACTO ======*/
+
+
+.success-message {
+    color: #00b3a7;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    display: none;
+}
+.char-counter {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* ======== RESPONSIVE ======== */
+
+@media screen and (max-width: 1024px) {
+
+    .nav-container {
+        flex-direction: column;
+        padding: 10px 20px;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        padding: 8px 15px;
+    }
+
+    #gif1 {
+        max-width: 350px;
+    }
+
+    #gif2 {
+        max-width: 450px;
+    }
+
+    #nosotros p {
+        width: 80%;
+    }
+
+    .titulo,
+    .subtitulo,
+    .titulo-bloque {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        padding: 8px 15px;
+    }
+
+    img[alt="logo optica"] {
+        width: 120px;
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .logo-header {
+        height: 40px;
+    }
+
+    form {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .char-counter {
+        font-size: 0.8rem;
+        padding: 1px 4px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-container {
+        padding: 5px 15px;
+    }
+
+    .nav-links a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+
+    #gif1 {
+        max-width: 250px;
+    }
+
+    #gif2 {
+        max-width: 300px;
+    }
+
+    .titulo,
+    .subtitulo,
+    .titulo-bloque {
+        font-size: 1rem;
+    }
+
+    #nosotros p {
+        width: 90%;
+    }
+
+    img[alt="logo optica"] {
+        width: 100px;
+    }
+
+    .logo-header {
+        height: 35px;
+    }
+
+    form {
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+
+
