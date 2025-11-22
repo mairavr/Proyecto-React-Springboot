@@ -8,7 +8,7 @@ const Admin = () => (
     <aside className="sidebar">
       <h2 className="text-orange">Panel Administrador</h2>
       <nav className="sidebar-menu">
-        <div className="menu-item">📦 <Link to="/admin/productos"><span className="text-orange">Productos</span></Link></div>
+        <div className="menu-item">📦 <Link to="/productos"><span className="text-orange">Productos</span></Link></div>
         <div className="menu-item">📁 <Link to="/categorias"><span className="text-orange">Categorías</span></Link></div>
         <div className="menu-item">👥 <Link to="/clientes"><span className="text-orange">Clientes</span></Link></div>
         <div className="menu-item">🧑‍💼 <Link to="/empleados"><span className="text-orange">Empleados</span></Link></div>

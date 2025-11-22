@@ -2,6 +2,7 @@ package com.opticamiroo.projectbackend.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.opticamiroo.projectbackend.entities.Cliente;
@@ -13,9 +14,18 @@ public class ClienteServicesImpl implements ClienteServices {
     @Autowired
     private ClienteRepositories clienteRepositories;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
-    public Cliente crear(Cliente Cliente) {
-        return clienteRepositories.save(Cliente);
+    public Cliente crear(Cliente cliente) {
+
+        if (cliente.getContrasena() != null) {
+            String hashed = passwordEncoder.encode(cliente.getContrasena());
+            cliente.setContrasena(hashed);
+        }
+
+        return clienteRepositories.save(cliente);
     }
 
     @Override
@@ -49,6 +59,11 @@ public class ClienteServicesImpl implements ClienteServices {
         }
         if (clienteActualizado.getTelefono() != null) {
             existente.setTelefono(clienteActualizado.getTelefono());
+        }
+
+        if (clienteActualizado.getContrasena() != null) {
+            String hashed = passwordEncoder.encode(clienteActualizado.getContrasena());
+            existente.setContrasena(hashed);
         }
 
         return clienteRepositories.save(existente);

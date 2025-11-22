@@ -18,6 +18,6 @@ public class Empleado {
     private String nombre;
     private String cargo;
     private String correo;
-    private String contraseña;
+    private String contrasena;
 
 }

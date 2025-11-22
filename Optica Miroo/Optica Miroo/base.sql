@@ -39,31 +39,31 @@ SELECT * FROM producto;
 -- ================================================
 -- CLIENTES
 -- ================================================
-INSERT INTO cliente (nombre, correo, telefono) VALUES
-("Juan Pérez", "juan.perez@opticamiroo.cl", "+56912345678"),
-("María González", "maria.gonzalez@opticamiroo.cl", "+56987654321"),
-("Pedro Torres", "pedro.torres@opticamiroo.cl", "+56911223344"),
-("Ana Fernández", "ana.fernandez@opticamiroo.cl", "+56922334455"),
-("Luis Ramírez", "luis.ramirez@opticamiroo.cl", "+56933445566"),
-("Carla Soto", "carla.soto@opticamiroo.cl", "+56944556677"),
-("Diego Morales", "diego.morales@opticamiroo.cl", "+56955667788"),
-("Paula Rojas", "paula.rojas@opticamiroo.cl", "+56966778899"),
-("Jorge Herrera", "jorge.herrera@opticamiroo.cl", "+56977889900"),
-("Valentina Castillo", "valentina.castillo@opticamiroo.cl", "+56988990011"),
-("Santiago Varela", "santiago.varela@opticamiroo.cl", "+56999001122"),
-("Isabel Navarro", "isabel.navarro@opticamiroo.cl", "+56910111213"),
-("Tomás Aguilar", "tomas.aguilar@opticamiroo.cl", "+56911121314"),
-("Fernanda Paredes", "fernanda.paredes@opticamiroo.cl", "+56912131415"),
-("Andrés Molina", "andres.molina@opticamiroo.cl", "+56913141516"),
-("Camila Riquelme", "camila.riquelme@opticamiroo.cl", "+56914151617"),
-("Martín Fuentes", "martin.fuentes@opticamiroo.cl", "+56915161718"),
-("Natalia Sepúlveda", "natalia.sepulveda@opticamiroo.cl", "+56916171819");
+INSERT INTO cliente (nombre, correo, telefono, contrasena) VALUES
+("Juan Pérez", "juan.perez@opticamiroo.cl", "+56912345678", "Jperez#2025"),
+("María González", "maria.gonzalez@opticamiroo.cl", "+56987654321", "Mgonzalez*89"),
+("Pedro Torres", "pedro.torres@opticamiroo.cl", "+56911223344", "Ptorres!77"),
+("Ana Fernández", "ana.fernandez@opticamiroo.cl", "+56922334455", "Afernandez@66"),
+("Luis Ramírez", "luis.ramirez@opticamiroo.cl", "+56933445566", "Lramirez$55"),
+("Carla Soto", "carla.soto@opticamiroo.cl", "+56944556677", "Csoto%44"),
+("Diego Morales", "diego.morales@opticamiroo.cl", "+56955667788", "Dmorales&33"),
+("Paula Rojas", "paula.rojas@opticamiroo.cl", "+56966778899", "Projas?22"),
+("Jorge Herrera", "jorge.herrera@opticamiroo.cl", "+56977889900", "Jherrera+11"),
+("Valentina Castillo", "valentina.castillo@opticamiroo.cl", "+56988990011", "Vcastillo=99"),
+("Santiago Varela", "santiago.varela@opticamiroo.cl", "+56999001122", "Svarela^88"),
+("Isabel Navarro", "isabel.navarro@opticamiroo.cl", "+56910111213", "Inavarro*77"),
+("Tomás Aguilar", "tomas.aguilar@opticamiroo.cl", "+56911121314", "Taguilar#66"),
+("Fernanda Paredes", "fernanda.paredes@opticamiroo.cl", "+56912131415", "Fparedes!55"),
+("Andrés Molina", "andres.molina@opticamiroo.cl", "+56913141516", "Amolina@44"),
+("Camila Riquelme", "camila.riquelme@opticamiroo.cl", "+56914151617", "Criquelme$33"),
+("Martín Fuentes", "martin.fuentes@opticamiroo.cl", "+56915161718", "Mfuentes%22"),
+("Natalia Sepúlveda", "natalia.sepulveda@opticamiroo.cl", "+56916171819", "Nsepulveda&11");
 SELECT * FROM cliente;
 
 -- ================================================
 -- EMPLEADOS
 -- ================================================
-INSERT INTO empleado (nombre, cargo, correo, contraseña) VALUES
+INSERT INTO empleado (nombre, cargo, correo, contrasena) VALUES
 ("Ana Torres", "Vendedora", "ana.torres@opticamiroo.cl","atorres12345"),
 ("Carlos Muñoz", "Administrador", "carlos.munoz@opticamiroo.cl","cmunozmiroo123"),
 ("Sofía Rivas", "Optometrista", "sofia.rivas@opticamiroo.cl","srivas12345"),

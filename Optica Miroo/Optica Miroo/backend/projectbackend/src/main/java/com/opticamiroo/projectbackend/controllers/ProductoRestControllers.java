@@ -3,6 +3,7 @@ package com.opticamiroo.projectbackend.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.opticamiroo.projectbackend.entities.Categoria;
 import com.opticamiroo.projectbackend.entities.Producto;
+import com.opticamiroo.projectbackend.repositories.CategoriaRepositories;
+import com.opticamiroo.projectbackend.repositories.ProductoRepositories;
 import com.opticamiroo.projectbackend.services.ProductoServices;
 
 @CrossOrigin(origins = "http://localhost:5173")
@@ -26,11 +30,27 @@ public class ProductoRestControllers {
     @Autowired
     private ProductoServices productoServices;
 
-    @PostMapping
-    public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto) {
-        Producto nuevoProducto = productoServices.crear(producto);
-        return ResponseEntity.ok(nuevoProducto);
+    @Autowired
+    private CategoriaRepositories categoriaRepositories;
+
+    @Autowired
+    private ProductoRepositories productoRepositories;
+
+@PostMapping
+public ResponseEntity<Producto> crearProducto(@RequestBody Producto producto) {
+
+    Categoria categoriaInput = producto.getCategoria();
+    Long categoriaId = (categoriaInput != null) ? categoriaInput.getId() : null;
+
+    if (categoriaId != null) {
+        Categoria categoria = categoriaRepositories.findById(categoriaId)
+            .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
+        producto.setCategoria(categoria);
     }
+
+    Producto guardado = productoRepositories.save(producto);
+    return ResponseEntity.status(HttpStatus.CREATED).body(guardado);
+}
 
     @GetMapping("/{id}")
     public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {

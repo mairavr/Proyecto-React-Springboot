@@ -3,6 +3,7 @@ package com.opticamiroo.projectbackend.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.opticamiroo.projectbackend.entities.Empleado;
 import com.opticamiroo.projectbackend.repositories.EmpleadoRepositories;
@@ -13,9 +14,17 @@ public class EmpleadoServicesImpl implements EmpleadoServices {
     @Autowired
     private EmpleadoRepositories empleadoRepositories;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
-    public Empleado crear(Empleado Empleado) {
-        return empleadoRepositories.save(Empleado);
+    public Empleado crear(Empleado empleado) {
+
+        if (empleado.getContrasena() != null) {
+            empleado.setContrasena(passwordEncoder.encode(empleado.getContrasena()));
+        }
+
+        return empleadoRepositories.save(empleado);
     }
 
     @Override
@@ -49,6 +58,9 @@ public class EmpleadoServicesImpl implements EmpleadoServices {
         }
         if (empleadoActualizado.getCorreo() != null) {
             existente.setCorreo(empleadoActualizado.getCorreo());
+        }
+        if (empleadoActualizado.getContrasena() != null) {
+            existente.setContrasena(passwordEncoder.encode(empleadoActualizado.getContrasena()));
         }
 
         return empleadoRepositories.save(existente);
