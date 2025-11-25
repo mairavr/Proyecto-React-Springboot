@@ -13,16 +13,18 @@ const ProductoPage = () => {
   });
 
   useEffect(() => {
+    // Cargar productos
     fetch("http://localhost:8080/api/productos")
       .then(r => r.json())
       .then(data => setProductos(data))
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
 
+    // Cargar categorías (opcional, si tu backend tiene este endpoint)
     fetch("http://localhost:8080/api/categorias")
       .then(r => r.json())
       .then(data => setCategorias(data))
-      .catch(err => console.error(err))
-      .finally(() => setLoading(false));
+      .catch(err => console.warn("No se pudieron cargar las categorías"));
   }, []);
 
   const handleChange = (e) => {
@@ -31,7 +33,7 @@ const ProductoPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!nuevoProducto.nombre || !nuevoProducto.descripcion || !nuevoProducto.precio || !nuevoProducto.categoriaId) return;
+    if (!nuevoProducto.nombre || !nuevoProducto.descripcion || !nuevoProducto.precio) return;
 
     const body = {
       nombre: nuevoProducto.nombre,
@@ -39,7 +41,7 @@ const ProductoPage = () => {
       precio: parseInt(nuevoProducto.precio),
       imagen: nuevoProducto.imagen,
       activo: true,
-      categoria: { id: parseInt(nuevoProducto.categoriaId) }
+      categoria: nuevoProducto.categoriaId ? { id: parseInt(nuevoProducto.categoriaId) } : null
     };
 
     fetch("http://localhost:8080/api/productos", {
@@ -59,8 +61,6 @@ const ProductoPage = () => {
 
   return (
     <div className="container mt-4">
-
-      
       <h2>Agregar Nuevo Producto</h2>
       <form onSubmit={handleSubmit} className="mb-4 p-3 border rounded bg-light">
         <div className="row">
@@ -118,7 +118,6 @@ const ProductoPage = () => {
               value={nuevoProducto.categoriaId}
               onChange={handleChange}
               className="form-select"
-              required
             >
               <option value="">Selecciona categoría</option>
               {categorias.map(c => (
@@ -132,7 +131,6 @@ const ProductoPage = () => {
         </div>
       </form>
 
-  
       <h2>Listado de Productos</h2>
       <table className="table table-bordered mt-3">
         <thead className="table-light">
@@ -154,7 +152,7 @@ const ProductoPage = () => {
                 <td>{p.descripcion}</td>
                 <td>{p.precio}</td>
                 <td>{p.activo ? "Sí" : "No"}</td>
-                <td>{p.categoria?.nombre}</td>
+                <td>{p.categoria ? p.categoria.nombre : "Sin categoría"}</td>
               </tr>
             ))
           ) : (

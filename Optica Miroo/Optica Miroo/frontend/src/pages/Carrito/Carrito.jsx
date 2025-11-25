@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { EstadoCarrito } from "../../componentes/Carrito/EstadoCarrito";
-import { crearVenta } from "../../services/ventasService";
+import BotonPagar from "../../componentes/Carrito/BotonPagar"; // 👈 importamos tu botón
 import "../../assets/css/estilo.css";
 import "../../assets/css/estilo1.css";
 import "../../assets/css/toast.css";
@@ -13,8 +13,6 @@ const Carrito = () => {
     disminuirCantidad
   } = useContext(EstadoCarrito);
 
-  const [mostrarModal, setMostrarModal] = useState(false);
-
   const formatoCLP = (valor) =>
     new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP" }).format(valor);
 
@@ -23,33 +21,6 @@ const Carrito = () => {
 
   const vaciarCarrito = () => {
     productosCarrito.forEach((p) => eliminarDelCarrito(p.id));
-  };
-
-  const finalizarCompra = async () => {
-    try {
-    
-      const ultimoId = parseInt(localStorage.getItem("ultimoClienteId")) || 1;
-
-      const venta = {
-        fecha: new Date().toISOString(),
-        total: calcularTotal(),
-        cliente_id: ultimoId
-      };
-
-      await crearVenta(venta);
-
-      localStorage.setItem("ultimoClienteId", (ultimoId + 1).toString());
-
-      setMostrarModal(true);
-      vaciarCarrito();
-    } catch (error) {
-      console.error("Error al registrar la venta:", error);
-      alert("No se pudo registrar la venta");
-    }
-  };
-
-  const cerrarModal = () => {
-    setMostrarModal(false);
   };
 
   return (
@@ -97,29 +68,16 @@ const Carrito = () => {
         <button className="btn-carrito" onClick={vaciarCarrito}>
           🧹 Vaciar carrito
         </button>
+
+        <BotonPagar
+          clienteId={localStorage.getItem("ultimoClienteId") || 1}
+          carrito={productosCarrito}
+        />
       </div>
 
       <div className="total">Total: {formatoCLP(calcularTotal())}</div>
-
-      <button className="btn-carrito" onClick={finalizarCompra}>
-        Finalizar compra
-      </button>
-
-      {mostrarModal && (
-        <div id="modal-exito" className="modal">
-          <div className="modal-contenido">
-            <span className="modal-cerrar" onClick={cerrarModal}>×</span>
-            <h2>✅ ¡Compra realizada con éxito!</h2>
-            <p>Gracias por tu compra. Recibirás un correo con los detalles.</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
 
 export default Carrito;
-
-
-
-

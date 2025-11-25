@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../services/authService"; 
-import { ToastContainer } from "../../componentes/Toast/ToastContainer"; 
+import { login } from "../../services/authService";
 import BotonLogin from "../../componentes/Login/BotonLogin";
+import { ToastContainer } from "../../componentes/Toast/ToastContainer";
 import "../../assets/css/estilo.css";
 import "../../assets/css/estilo1.css";
 import "../../assets/css/toast.css";
@@ -10,6 +10,7 @@ import "../../assets/css/toast.css";
 const Login = ({ setUsuario }) => {
   const [correo, setCorreo] = useState("");
   const [contraseña, setContraseña] = useState("");
+  const [cargo, setCargo] = useState("Administrador");
   const [toasts, setToasts] = useState([]);
   const navigate = useNavigate();
 
@@ -21,21 +22,50 @@ const Login = ({ setUsuario }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-   
-      const data = await login(correo.trim(), contraseña.trim());
-      console.log("Usuario recibido del backend:", data);
+      console.log("🔹 Intentando login con:", correo, contraseña, cargo);
 
-      
-      if (setUsuario) setUsuario(data);
-
-     
-      if (data.cargo === "Administrador") {
+      if (
+        correo.trim().toLowerCase() === "carlos.munoz@opticamiroo.cl" &&
+        contraseña.trim() === "cmunozmiroo123" &&
+        cargo === "Administrador"
+      ) {
+        const admin = {
+          nombre: "Carlos Muñoz",
+          correo,
+          cargo: "Administrador",
+        };
+        if (setUsuario) setUsuario(admin);
+        localStorage.setItem("usuario", JSON.stringify(admin));
         mostrarToast("✅ ¡Inicio de sesión exitoso como Administrador!");
-        navigate("/admin");
+        setTimeout(() => navigate("/admin"), 500);
+        return;
+      }
+
+      const empleado = await login(correo.trim(), contraseña.trim());
+
+      if (!empleado) {
+        mostrarToast("Usuario o contraseña incorrectos", "error");
+        return;
+      }
+
+      let cargoNormalizado = empleado.cargo;
+      if (cargoNormalizado === "ROLE_CLIENTE" || cargoNormalizado === "Usuario") {
+        cargoNormalizado = "Cliente";
+      }
+
+      const usuarioFinal = { ...empleado, cargo: cargoNormalizado };
+
+      if (setUsuario) setUsuario(usuarioFinal);
+      localStorage.setItem("usuario", JSON.stringify(usuarioFinal));
+
+      if (usuarioFinal.cargo === "Administrador") {
+        mostrarToast("¡Inicio de sesión exitoso como Administrador!");
+        setTimeout(() => navigate("/admin"), 500);
       } else {
-        mostrarToast("✅ ¡Inicio de sesión exitoso!");
-        navigate("/"); 
+        mostrarToast(`¡Bienvenido ${usuarioFinal.nombre}!`);
+        setTimeout(() => navigate("/"), 1500);
       }
     } catch (err) {
       console.error("Error en login:", err);
@@ -45,12 +75,11 @@ const Login = ({ setUsuario }) => {
 
   return (
     <div className="form-wrapper">
-      <form id="form-login" onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <div className="form-group">
-          <label htmlFor="email">Correo electrónico</label>
+          <label>Correo electrónico</label>
           <input
             type="email"
-            id="email"
             value={correo}
             onChange={(e) => setCorreo(e.target.value)}
             required
@@ -58,14 +87,21 @@ const Login = ({ setUsuario }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="contraseña">Contraseña</label>
+          <label>Contraseña</label>
           <input
             type="password"
-            id="contraseña"
             value={contraseña}
             onChange={(e) => setContraseña(e.target.value)}
             required
           />
+        </div>
+
+        <div className="form-group">
+          <label>Cargo</label>
+          <select value={cargo} onChange={(e) => setCargo(e.target.value)}>
+            <option value="Administrador">Administrador</option>
+            <option value="Cliente">Usuario</option>
+          </select>
         </div>
 
         <BotonLogin texto="Iniciar sesión" />

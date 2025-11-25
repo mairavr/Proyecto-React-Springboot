@@ -4,7 +4,7 @@ import { EstadoCarrito } from "../Carrito/EstadoCarrito";
 import "../../assets/css/estilo.css";
 import "../../assets/css/estilo1.css";
 
-function Navbar({ abrirMiniCarrito }) {
+function Navbar({ abrirMiniCarrito, usuario }) {
   const { productosCarrito } = useContext(EstadoCarrito);
   const cantidad = productosCarrito.length;
 
@@ -16,15 +16,18 @@ function Navbar({ abrirMiniCarrito }) {
         <Link to="/nosotros">NOSOTROS 🧑‍💻</Link>
         <Link to="/productos">PRODUCTOS 🛍️</Link>
         <Link to="/blog">BLOG 📝</Link>
-        <Link to="/loginAdmin">CUENTA 👤</Link>
         <Link to="/contacto">CONTACTO ✉️</Link>
 
         <span className="nav-link" onClick={abrirMiniCarrito}>
           CARRITO 🛒
-          {cantidad > 0 && (
-            <span className="carrito-burbuja">{cantidad}</span>
-          )}
+          {cantidad > 0 && <span className="carrito-burbuja">{cantidad}</span>}
         </span>
+
+        {!usuario && <Link to="/login">CUENTA 👤</Link>}
+
+        {usuario && usuario.cargo === "Cliente" && (
+          <span className="nav-usuario">Bienvenido, {usuario.nombre} 👤</span>
+        )}
       </nav>
     </div>
   );

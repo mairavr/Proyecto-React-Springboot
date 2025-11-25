@@ -16,7 +16,6 @@ INSERT INTO categoria (nombre) VALUES ("Monturas Premium");
 INSERT INTO categoria (nombre) VALUES ("Accesorios de Limpieza");
 INSERT INTO categoria (nombre) VALUES ("Estuches y Fundas");
 INSERT INTO categoria (nombre) VALUES ("Paños y Soluciones de Limpieza");
-SELECT * FROM categoria;
 
 -- ================================================
 -- PRODUCTOS
@@ -34,50 +33,80 @@ INSERT INTO producto (activo, descripcion, nombre, precio, categoria_id, imagen)
 (TRUE, "Paño de limpieza premium para lentes", "Paño Premium", 4990, 3, "pano.webp"),
 (TRUE, "Soporte de lentes de sol para auto", "Soporte Auto", 7990, 3, "soporteauto.webp"),
 (TRUE, "Lentes de sol con marco dorado y lentes polarizadas", "Golden Polar", 89990, 1, "goldenpolar.jpg");
-SELECT * FROM producto;
 
 -- ================================================
 -- CLIENTES
 -- ================================================
 INSERT INTO cliente (nombre, correo, telefono, contrasena) VALUES
-("Juan Pérez", "juan.perez@opticamiroo.cl", "+56912345678", "Jperez#2025"),
-("María González", "maria.gonzalez@opticamiroo.cl", "+56987654321", "Mgonzalez*89"),
-("Pedro Torres", "pedro.torres@opticamiroo.cl", "+56911223344", "Ptorres!77"),
-("Ana Fernández", "ana.fernandez@opticamiroo.cl", "+56922334455", "Afernandez@66"),
-("Luis Ramírez", "luis.ramirez@opticamiroo.cl", "+56933445566", "Lramirez$55"),
-("Carla Soto", "carla.soto@opticamiroo.cl", "+56944556677", "Csoto%44"),
-("Diego Morales", "diego.morales@opticamiroo.cl", "+56955667788", "Dmorales&33"),
-("Paula Rojas", "paula.rojas@opticamiroo.cl", "+56966778899", "Projas?22"),
-("Jorge Herrera", "jorge.herrera@opticamiroo.cl", "+56977889900", "Jherrera+11"),
-("Valentina Castillo", "valentina.castillo@opticamiroo.cl", "+56988990011", "Vcastillo=99"),
-("Santiago Varela", "santiago.varela@opticamiroo.cl", "+56999001122", "Svarela^88"),
-("Isabel Navarro", "isabel.navarro@opticamiroo.cl", "+56910111213", "Inavarro*77"),
-("Tomás Aguilar", "tomas.aguilar@opticamiroo.cl", "+56911121314", "Taguilar#66"),
-("Fernanda Paredes", "fernanda.paredes@opticamiroo.cl", "+56912131415", "Fparedes!55"),
-("Andrés Molina", "andres.molina@opticamiroo.cl", "+56913141516", "Amolina@44"),
-("Camila Riquelme", "camila.riquelme@opticamiroo.cl", "+56914151617", "Criquelme$33"),
-("Martín Fuentes", "martin.fuentes@opticamiroo.cl", "+56915161718", "Mfuentes%22"),
-("Natalia Sepúlveda", "natalia.sepulveda@opticamiroo.cl", "+56916171819", "Nsepulveda&11");
-SELECT * FROM cliente;
+("Juan Pérez", "juan.perez@opticamiroo.cl", "+56912345678", "$2a$10$GBC9XRDncIYhBGHtpM5hZuI7.StYGAeCpyRAr8X2RK7FMw5mZkrG6"),
+("María González", "maria.gonzalez@opticamiroo.cl", "+56987654321", "$2a$10$VDA9Als/vB93TYqUY7UwmebwfyQhkOmI3lPME4bpcJQPtbQeZAcve"),
+("Pedro Torres", "pedro.torres@opticamiroo.cl", "+56911223344", "$2a$10$ONRhNFbgKWVE.NFSe4F11.znaSLHIHvDKbxtunkfJedN6ykqTJUB2"),
+("Ana Fernández", "ana.fernandez@opticamiroo.cl", "+56922334455", "$2a$10$qAXet1bt0ZQqtXWydEEozOL5eBpBLppBmTKd/PNGZa2tq17Mzx6JC"),
+("Luis Ramírez", "luis.ramirez@opticamiroo.cl", "+56933445566", "$2a$10$yE0CH/fHXK8JO0hfpi5MBerk26Thb90rYsGKmghlXl9eQEjUarM2m"),
+("Carla Soto", "carla.soto@opticamiroo.cl", "+56944556677", "$2a$10$7wwHZOsJp9E3aycq3f3LEeKmJCS3L4D3EU51kjee72wCcPdF8c.jS"),
+("Diego Morales", "diego.morales@opticamiroo.cl", "+56955667788", "$2a$10$5JChciGdpRLbb5N7hJaUQeVKemLLJ9nCQpJlXUroBVYB9D28AMg4i"),
+("Paula Rojas", "paula.rojas@opticamiroo.cl", "+56966778899", "$2a$10$ZUg.MblV.pU4HBru1u7SGeu8tyja5bldkm1Gvimdkcw759SRmAJyq"),
+("Jorge Herrera", "jorge.herrera@opticamiroo.cl", "+56977889900", "$2a$10$ZlzhkIfaVPkqRANg3e/yTeGb0gMlfBzBaNE0UyjOoZ8TculOsT3eG"),
+("Valentina Castillo", "valentina.castillo@opticamiroo.cl", "+56988990011", "$2a$10$Gh4u/z531.OfzwioZoeZsuA9MjXHyp6Cestv3I7WcVChhx0s8Hlu2"),
+("Santiago Varela", "santiago.varela@opticamiroo.cl", "+56999001122", "$2a$10$Eh1lUelbRAloU8T0mt8FW.hvOkpBFXrj4ecECDPGtGzMvdr.thshi"),
+("Isabel Navarro", "isabel.navarro@opticamiroo.cl", "+56910111213", "$2a$10$YdRh77NdQ8/d6ap2MQDT3OIB8vkt8.k7BE6ZFD5y5WtweNnqfIX2O"),
+("Tomás Aguilar", "tomas.aguilar@opticamiroo.cl", "+56911121314", "$2a$10$NeXS0QsojThs6RTcBXo3Y.3Qf9GZ69ppscBXPrhY1g0tz28uB.ny."),
+("Fernanda Paredes", "fernanda.paredes@opticamiroo.cl", "+56912131415", "$2a$10$4PhL4u9VKycg.81bxyR.puV02kqvrpjzBk6psGFlL5FM89MEf1ytG"),
+("Andrés Molina", "andres.molina@opticamiroo.cl", "+56913141516", "$2a$10$Oqc3TecJO0zgPpjyt3yJ3eBT8OZDhgn4RGzbWIXqXAjtmYtgFMZT6"),
+("Camila Riquelme", "camila.riquelme@opticamiroo.cl", "+56914151617", "$2a$10$0KC8CDGrxYMQK6VR0o4pIOCcFtWkjwNC5Ky.J49Wl3zhXR2goaux."),
+("Martín Fuentes", "martin.fuentes@opticamiroo.cl", "+56915161718", "$2a$10$O2U6FTwPo1os9Fffeo3/4OAvilhpiJz.mxUJCvYyDWs3cpcKYFxtm"),
+("Natalia Sepúlveda", "natalia.sepulveda@opticamiroo.cl", "+56916171819", "$2a$10$93eglLS0ZeSFJoT2FPJC3eAM73NUZfGS2COclUzsk/Nu9hiN9Gqxy");
+
+-- juan.perez@opticamiroo.cl → Jperez#2025
+-- maria.gonzalez@opticamiroo.cl → Mgonzalez89*
+-- pedro.torres@opticamiroo.cl → Ptorres!77
+-- ana.fernandez@opticamiroo.cl → Afernandez@66
+-- luis.ramirez@opticamiroo.cl → Lramirez$55
+-- carla.soto@opticamiroo.cl → Csoto%44
+-- diego.morales@opticamiroo.cl → Dmorales&33
+-- paula.rojas@opticamiroo.cl → Projas?22
+-- jorge.herrera@opticamiroo.cl → Jherrera+11
+-- valentina.castillo@opticamiroo.cl → Vcastillo=99
+-- santiago.varela@opticamiroo.cl → Svarela^88
+-- isabel.navarro@opticamiroo.cl → Inavarro77*
+-- tomas.aguilar@opticamiroo.cl → Taguilar#66
+-- fernanda.paredes@opticamiroo.cl → Fparedes!55
+-- andres.molina@opticamiroo.cl → Amolina@44
+-- camila.riquelme@opticamiroo.cl → Criquelme$33
+-- martin.fuentes@opticamiroo.cl → Mfuentes%22
+-- natalia.sepulveda@opticamiroo.cl → Nsepulveda&11
 
 -- ================================================
 -- EMPLEADOS
 -- ================================================
 INSERT INTO empleado (nombre, cargo, correo, contrasena) VALUES
-("Ana Torres", "Vendedora", "ana.torres@opticamiroo.cl","atorres12345"),
-("Carlos Muñoz", "Administrador", "carlos.munoz@opticamiroo.cl","cmunozmiroo123"),
-("Sofía Rivas", "Optometrista", "sofia.rivas@opticamiroo.cl","srivas12345"),
-("Patricia Salazar", "Vendedora", "patricia.salazar@opticamiroo.cl", "psalazar123"),
-("Ricardo Aguirre", "Optometrista", "ricardo.aguirre@opticamiroo.cl", "raguirre123"),
-("Lorena Medina", "Vendedora", "lorena.medina@opticamiroo.cl", "lmedina123"),
-("Fernando Pizarro", "Vendedora", "fernando.pizarro@opticamiroo.cl", "fpizarro123"),
-("Claudia Araya", "Vendedora", "claudia.araya@opticamiroo.cl", "caraya123"),
-("Javier Espinoza", "Optometrista", "javier.espinoza@opticamiroo.cl", "jespinoza123"),
-("Verónica Castillo", "Vendedora", "veronica.castillo@opticamiroo.cl", "vcastillo123"),
-("Diego Olivares", "Vendedora", "diego.olivares@opticamiroo.cl", "dolivares123"),
-("Carolina Rojas", "Optometrista", "carolina.rojas@opticamiroo.cl", "crojas123"),
-("Matías Fernández", "Vendedor", "matias.fernandez@opticamiroo.cl", "mfernandez123");
-SELECT * FROM empleado;
+("Ana Torres", "Vendedora", "ana.torres@opticamiroo.cl", "$2a$10$7NoQlgplcMJdeENfYtXzG.Kk3q1i6YyUzWJzeIMxXmMI///t4iqJ6"),
+("Carlos Muñoz", "Administrador", "carlos.munoz@opticamiroo.cl", "$2a$10$fGaPAtqkwDspoct/0tWmEeDIRXUb0fScnjyUK9JABI1TDATz4SN/G"),
+("Sofía Rivas", "Optometrista", "sofia.rivas@opticamiroo.cl", "$2a$10$k7LUuyZw/.lrtC.CYR/FVOZ48Kheywzeapx40QiL5f/j0dHahBVqG"),
+("Patricia Salazar", "Vendedora", "patricia.salazar@opticamiroo.cl", "$2a$10$mOF3Ed8ZOdu6yH7JtFA4/uJzVAEzzlBATlINe2rI1r/Df1nl1Uvl."),
+("Ricardo Aguirre", "Optometrista", "ricardo.aguirre@opticamiroo.cl", "$2a$10$2mbTA7GEGLD2Zf1TikpYGep/wrsIipLhoWnIYDy303dYbQJa4PL1i"),
+("Lorena Medina", "Vendedora", "lorena.medina@opticamiroo.cl", "$2a$10$Llflh0aIbz3uaYf5Wk7GFOACBgRHES.4y61ExY5ZyDzRbqftGJabK"),
+("Fernando Pizarro", "Vendedor", "fernando.pizarro@opticamiroo.cl", "$2a$10$9imsmEi//e7LMAXK/fBoEu1l1N/3DN.fEfYqsFmwIjHzvuWxa/3Da"),
+("Claudia Araya", "Vendedora", "claudia.araya@opticamiroo.cl", "$2a$10$NLwNh8KtVA.O/j/YcxAMheHPI6NoWDh9bVP8oQYPlyl36epsX07ly"),
+("Javier Espinoza", "Optometrista", "javier.espinoza@opticamiroo.cl", "$2a$10$oUqODF/sidggVywrj3.jSeh3r533MByfkp3g9JpL1a4HYe8grvgL."),
+("Verónica Castillo", "Vendedora", "veronica.castillo@opticamiroo.cl", "$2a$10$9/shjRoaKqsds5DiTH1jPuYOi2XIvx1vYx.27wSB.uVKVy4dzQJm."),
+("Diego Olivares", "Vendedor", "diego.olivares@opticamiroo.cl", "$2a$10$Sw1z.6kADhN7p4PqRGoc2eIteK6xWKZujnaheewEnXzm8R1fVQQzK"),
+("Carolina Rojas", "Optometrista", "carolina.rojas@opticamiroo.cl", "$2a$10$OYiaOot10pS4FI3Z34UNMuZ2TFkE.pVxk6R0hnfr7BWN3pVPz.xXS"),
+("Matías Fernández", "Vendedor", "matias.fernandez@opticamiroo.cl", "$2a$10$6oJG93iWG2EiR./YNVwP0ulWcXmcvllQQw8Xn0ZQ2/GveaYIWSs3S");
+
+-- ana.torres@opticamiroo.cl → atorres12345
+-- carlos.munoz@opticamiroo.cl → cmunozmiroo123
+-- sofia.rivas@opticamiroo.cl → srivas12345
+-- patricia.salazar@opticamiroo.cl → psalazar123
+-- ricardo.aguirre@opticamiroo.cl → raguirre123
+-- lorena.medina@opticamiroo.cl → lmedina123
+-- fernando.pizarro@opticamiroo.cl → fpizarro123
+-- claudia.araya@opticamiroo.cl → caraya123
+-- javier.espinoza@opticamiroo.cl → jespinoza123
+-- veronica.castillo@opticamiroo.cl → vcastillo123
+-- diego.olivares@opticamiroo.cl → dolivares123
+-- carolina.rojas@opticamiroo.cl → crojas123
+-- matias.fernandez@opticamiroo.cl → mfernandez123
 
 -- ================================================
 -- PROVEEDORES
@@ -96,7 +125,6 @@ INSERT INTO proveedor (nombre, telefono, email) VALUES
 ("GrandVision Chile", "+56229990011", "ventas@grandvision.cl"),
 ("OpticStore", "+56221001122", "info@opticstore.cl"),
 ("VisionPro", "+56221112233", "contacto@visionpro.cl");
-SELECT * FROM proveedor;
 
 -- ================================================
 -- VENTAS
@@ -135,5 +163,39 @@ INSERT INTO venta (fecha, total, cliente_id) VALUES
 ("2025-11-19", 599990, 10),
 ("2025-11-20", 619990, 11),
 ("2025-11-21", 639990, 12);
-SELECT * FROM venta;
 
+-- ================================================
+-- NUMERACIÓN DE BOLETAS
+-- ================================================
+INSERT INTO numeracion_boleta (ultimo_numero) VALUES (0);
+
+
+-- ================================================
+-- BOLETAS GENERADAS
+-- ================================================
+INSERT INTO boleta (numero_boleta, fecha_emision, subtotal, iva, total, cliente_id) VALUES
+(1, NOW(), 79990, 15100.1, 95190.1, 3),
+(2, NOW(), 49990, 9498.1, 59488.1, 7),
+(3, NOW(), 119980, 22796.2, 142776.2, 12),
+(4, NOW(), 15990, 3038.1, 19028.1, 5),
+(5, NOW(), 69990, 13298.1, 83288.1, 10),
+(6, NOW(), 52990, 10068.1, 63058.1, 1),
+(7, NOW(), 15990, 3038.1, 19028.1, 17),
+(8, NOW(), 74990, 14248.1, 89238.1, 2),
+(9, NOW(), 89990, 17098.1, 107088.1, 14),
+(10, NOW(), 15990, 3038.1, 19028.1, 9);
+
+-- ================================================
+-- DETALLES DE BOLETAS
+-- ================================================
+INSERT INTO boleta_detalle (productoId, nombreProducto, cantidad, precioUnitario, totalLinea, boleta_id) VALUES
+(1, "Ray-Ban Aviator", 1, 79990, 79990, 1),
+(3, "Marco Metálico Clásico", 1, 49990, 49990, 2),
+(2, "Oakley Frogskins", 1, 69990, 69990, 3),
+(4, "Estuche Premium", 1, 15990, 15990, 4),
+(5, "SunRed", 1, 59990, 59990, 5),
+(8, "Moderno Clear", 1, 52990, 52990, 6),
+(10, "Paño Premium", 1, 4990, 4990, 7),
+(6, "Sporty Black", 1, 74990, 74990, 8),
+(12, "Golden Polar", 1, 89990, 89990, 9),
+(9, "Estuche Elegante", 1, 15990, 15990, 10);

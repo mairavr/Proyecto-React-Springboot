@@ -3,12 +3,14 @@ package com.opticamiroo.projectbackend.security;
 import com.opticamiroo.projectbackend.entities.Cliente;
 import com.opticamiroo.projectbackend.repositories.ClienteRepositories;
 import org.springframework.security.core.userdetails.*;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Primary
 public class CustomClienteDetailsService implements UserDetailsService {
 
     private final ClienteRepositories clienteRepo;

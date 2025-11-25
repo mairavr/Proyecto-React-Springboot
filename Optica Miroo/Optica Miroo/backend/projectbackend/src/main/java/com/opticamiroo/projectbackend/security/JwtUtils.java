@@ -9,10 +9,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
 import java.util.Map;
@@ -20,24 +20,22 @@ import java.util.function.Function;
 
 @Component
 public class JwtUtils {
+    
+    @Value("${jwt.secret}")    
+    private String secret;
 
-    @Value("${jwt.secret}")
-    private String secret;     
-
-    @Value("${jwt.expiration}")
-    private long expirationMs; 
+    @Value("${jwt.expiration}")  
+    private long expirationMs;
 
     @Value("${jwt.clockSkew:0}")
     private long clockSkewMs;   
 
     private Key getSigningKey() {
-        try {
-            byte[] keyBytes = Decoders.BASE64.decode(secret);
-            return Keys.hmacShaKeyFor(keyBytes);
-        } catch (IllegalArgumentException e) {
-            byte[] keyBytes = secret.getBytes(StandardCharsets.UTF_8);
-            return Keys.hmacShaKeyFor(keyBytes);
+        byte[] keyBytes = Decoders.BASE64.decode(secret);
+        if (keyBytes.length < 32) {
+            throw new IllegalArgumentException("La clave JWT debe tener al menos 256 bits (32 bytes).");
         }
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
     private Claims parseAllClaims(String token) {

@@ -15,7 +15,7 @@ import Productos from "./pages/Productos/Productos";
 import Blog from "./pages/Blog/Blog";
 import Contacto from "./pages/Contacto/Contacto";
 import Admin from "./pages/Admin/Admin";
-import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
+import Login from "./pages/Login/Login";
 
 import ClientePage from "./pages/Cliente/ClientePage.jsx";
 import EmpleadoPage from "./pages/Empleado/EmpleadoPage.jsx";
@@ -44,14 +44,14 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/carrito" element={<Carrito />} />
-            <Route path="/loginAdmin" element={<LoginAdmin setUsuario={setUsuario} />} />
+            <Route path="/Login" element={<Login setUsuario={setUsuario} />} />
             <Route
               path="/admin"
               element={
                 usuario?.cargo === "Administrador" ? (
                   <Admin empleado={usuario} />
                 ) : (
-                  <Navigate to="/loginAdmin" />
+                  <Navigate to="/Login" />
                 )
               }
             />

@@ -9,16 +9,15 @@ import com.opticamiroo.projectbackend.entities.Producto;
 import com.opticamiroo.projectbackend.repositories.ProductoRepositories;
 
 @Service
-public class ProductoServicesImpl implements ProductoServices{
+public class ProductoServicesImpl implements ProductoServices {
 
- @Autowired
+    @Autowired
     private ProductoRepositories productoRepositories;
 
     @Override
     public Producto crear(Producto producto){
         return productoRepositories.save(producto);
     }
-
 
     @Override
     public Producto obtenerId(Long id) {
@@ -36,14 +35,19 @@ public class ProductoServicesImpl implements ProductoServices{
         if (!productoRepositories.existsById(id)) {
             throw new RuntimeException("Producto no encontrado");
         }
-       productoRepositories.deleteById(id);
+        productoRepositories.deleteById(id);
     }
 
+    // Método actualizar completo
     @Override
     public Producto actualizar(Long id, Producto productoActualizado) {
         Producto existente = obtenerId(id);
+        existente.setNombre(productoActualizado.getNombre());
         existente.setDescripcion(productoActualizado.getDescripcion());
         existente.setPrecio(productoActualizado.getPrecio());
+        existente.setImagen(productoActualizado.getImagen());
+        existente.setActivo(productoActualizado.getActivo());
+        existente.setCategoria(productoActualizado.getCategoria());
         return productoRepositories.save(existente);
     }
 
@@ -53,5 +57,5 @@ public class ProductoServicesImpl implements ProductoServices{
         producto.setActivo(false);
         return productoRepositories.save(producto);
     }
-
 }
+
